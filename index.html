@@ -5,11 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript</title>
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
-    <script src="js/script.js"></script>
+    <h1 class="title">Решение уравнения</h1>
+    <form class="form-equation">
+        <fieldset>
+            <legend>Коэффициенты</legend>
+            <input class="params" id="param_a" type="number" placeholder="Коэф. a">
+            <input class="params" id="param_b" type="number" placeholder="Коэф. b" disabled>
+            <input class="params" id="param_c" type="number" placeholder="Коэф. c" disabled>
+
+            <input class="range" type="range" id="range_a" min="-100" value="0" max="100">
+            <input class="range" type="range" id="range_b" min="-100" value="0" max="100" disabled>
+            <input class="range" type="range" id="range_c" min="-100" value="0" max="100" disabled>
+
+            <div class="buttons">
+                <input class="btn btn-calc" id="btn_calc" type="button" value="Произвести расчёт" disabled>
+                <input class="btn btn-reset" id="btn_reset" type="reset" value="Очистить" disabled>
+            </div>
+        </fieldset>
+    </form>
+    <script src="js/script.js" async></script>
 </body>
 </html>
