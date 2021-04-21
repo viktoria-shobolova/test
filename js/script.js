@@ -275,7 +275,8 @@ function checkResult(result) {
 
 
 
-
+let str = "любая фраза";
+alert (str[0].toUpperCase() + str.substring(1));
 
 
 
