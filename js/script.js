@@ -28,52 +28,54 @@ let removed; //удалённый объект, содержащий строк�
 
 // обработчик события "input" при вводе в поле коэф. a 
 inputParamA.addEventListener("input", () => {
-    inputParamB.removeAttribute("disabled");
+ paramA = updateParam(inputParamA, rangeParamA);
 
-    btnCalc.removeAttribute("disabled");
-    btnReset.removeAttribute("disabled");
-
-    paramA = +inputParamA.value;
+ unBlocked(inputParamB, rangeParamB, btnCalc, btnReset);
+   
 })
 
 // обработчик события "input" при вводе в поле коэф. b
 inputParamB.addEventListener("input", () => {
-    inputParamC.removeAttribute("disabled");
-    paramB = +inputParamB.value;
+    paramB = updateParam(inputParamB, rangeParamB);
+        unBlocked(inputParamC, rangeParamC);
+
 })
 
 // обработчик события "input" при вводе в поле коэф. c
 inputParamC.addEventListener("input", () => {
-    paramC = +inputParamC.value;
+    paramC = updateParam(inputParamC, rangeParamC);
+  
+
 })
 
 // обработчик события "change" при изменении ползунка коэф. a 
 rangeParamA.addEventListener("change", () => {
-    inputParamA.value = rangeParamA.value;
-
-    inputParamB.removeAttribute("disabled");
-    rangeParamB.removeAttribute("disabled");
-
-    btnCalc.removeAttribute("disabled");
-    btnReset.removeAttribute("disabled");
-})
+    
+    paramA = updateParam(rangeParamA, inputParamA);
+    unBlocked(inputParamB, rangeParamB, btnCalc, btnReset);
+    })
 
 // обработчик события "change" при изменении ползунка коэф. b 
 rangeParamB.addEventListener("change", () => {
-    inputParamB.value = rangeParamB.value;
+    paramB = updateParam(rangeParamB, inputParamB);
+    unBlocked(inputParamC, rangeParamC);
 
-    inputParamC.removeAttribute("disabled");
-    rangeParamC.removeAttribute("disabled");
+    //inputParamC.removeAttribute("disabled");
+    //rangeParamC.removeAttribute("disabled");
 })
 
 // обработчик события "change" при изменении ползунка коэф. c 
 rangeParamC.addEventListener("change", () => {
-    inputParamC.value = rangeParamC.value;
+    paramC = updateParam(rangeParamC, inputParamC);
 })
 
+// обработчик события "click" при клике по кнопке "Произвести расчёт"
+btnCalc.addEventListener("click", () => {
+    console.log (paramA + ' ' + paramB + ' '  + paramC);
+    result = calcSolution(paramA, paramB, paramC);
+    printSolution();
 
-
-
+})
 
 // обработчик события "click" при клике по кнопке "Очистить"
 btnReset.addEventListener("click", () => {
@@ -92,12 +94,24 @@ btnReset.addEventListener("click", () => {
 })
 
 
-// обработчик события "click" при клике по кнопке "Произвести расчёт"
-btnCalc.addEventListener("click", () => {
-    result = calcSolution(paramA, paramB, paramC);
-    printSolution();
+// функция разблокировки полей и кнопок
+function unBlocked(input, range, btnCalc, btnReset) {
+    input.removeAttribute("disabled");
+    range.removeAttribute("disabled");
 
-})
+    if (btnCalc && btnReset) {
+       btnCalc.removeAttribute("disabled");
+    btnReset.removeAttribute("disabled");
+ }
+}
+
+//фукция установки/обновления коэфициента в поле/ползунке
+function updateParam(input1, input2) {
+    let param = +input1.value; //значение коэф.
+    input2.value = param; // значение поля/ползунка с коэф.
+   
+    return param;
+}
 
 
 // главная функция расчёта корней (вычисление)
@@ -272,12 +286,6 @@ function checkResult(result) {
 //         alert("Уравнение квадратное. Имеет два корня:\n" + "x1 = " + solution[0].toFixed(2) + "\nx2 = " + solution[1].toFixed(2));
 //     }
 // }
-
-
-
-let str = "любая фраза";
-alert (str[0].toUpperCase() + str.substring(1));
-
 
 
 
