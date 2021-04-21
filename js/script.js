@@ -274,6 +274,23 @@ function checkResult(result) {
 // }
 
 
+//33 задача.
+
+let str = "весна пришла";
+alert (str[0].toUpperCase() + str.substring(1));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
