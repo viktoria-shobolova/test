@@ -1,4 +1,4 @@
-/* html {
+html {
     font-size: 15px;
     line-height: 160%;
 }
@@ -18,21 +18,33 @@ body {
 .form-equation {
     width: 50%;
     margin: auto;
+    margin-top: 40px;
 }
 .form-equation fieldset {
     text-align: center;
     border: 2px dotted rgb(230, 243, 114);
     background-image: linear-gradient(45deg, #def0b5 0%,#e3f5ab 33%,#a9bd69 100%);
 }
-.form-equation legend {
+.form-equation .settings {
+    margin-bottom: 20px;
+    background-image: linear-gradient(45deg, #ffe9e9 0%,#ffcccc 50%,#ffa0a0 100%);
+}
+.form-equation .title {
+    position: relative;
+    top: -15px;
     padding: 0 15px;
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 0.75px;
     font-size: 0.8rem;
     font-weight: bold;
-    color: rgb(0, 153, 13);
+    color: rgb(110, 110, 110);
 }
+
+.form-equation .url {
+    width: 50%;
+}
+
 .form-equation .params {
     box-sizing: border-box;
     padding: 5px 10px;
@@ -40,14 +52,11 @@ body {
     border: 3px ridge rgb(255, 255, 255);
     color: rgb(3, 187, 19);
 }
-
 .form-equation .range {
     margin-top: 15px;
     margin-right: 20px;
-
     width: 150px;
 }
-
 .form-equation .buttons {
     margin-top: 15px;
 }
@@ -75,7 +84,11 @@ body {
     background-image: linear-gradient(135deg, #669443 0%,#346d0c 50%, #669443 100%);
 }
 .form-equation .btn-reset {
+    margin-right: 20px;
     background-image: linear-gradient(135deg, #944f43 0%,#c23e27 50%, #944f43 100%);
+}
+.form-equation .btn-play {
+    background-color: rgb(77, 76, 76);
 }
 .solution {
     width: 50%;
@@ -89,15 +102,21 @@ body {
 .solution strong {
     font-weight: bold;
     color: rgb(200, 75, 3);
-} */
+}
+.player {
+    display: none;
+    margin: 25px auto;
+    width: 50%;
+}
+.player-show {
+    display: block;
+}
 
-
-
-.image {
+/* .image {
     width: 40%;
     height: 40%;
      margin-top: 30px;
     display: block;
   margin-left: auto;
   margin-right: auto;
-}
+} */
