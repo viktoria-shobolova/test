@@ -18,14 +18,16 @@ function inArray(text, array) {
 // Дан массив с числами. Узнайте сколько элементов с начала массива надо сложить, чтобы в сумме получилось больше 10-ти.
 
 mas = [-2,-4,5,7,9,11];
-let vision = mas.reduce(function(sum,elem,_index) {
+let vision = mas.reduce(function (sum, elem, _index) {
 	if (sum > 10) {
 		alert(_index);
 		return;
 	} 
 	else {
 	_index++;
-	;
+
 		 	return sum + elem;
 			}
 }); 
+
+
