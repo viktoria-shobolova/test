@@ -1,9 +1,2 @@
-let num1 = 4;
-const num3 = 10;
-
- console.log(num1);
- 
- console.log(num2);
-
-
- 
+//Ассоциативные массивы
+let mas = [10, true, "str"];
